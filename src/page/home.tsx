@@ -10,7 +10,9 @@ const Home: React.FC<Props> = ({ routerList }) => {
   return (
     <div>
       {routerList.map((item) => (
-        <Link to={item.path}>{item.linkText}</Link>
+        <p>
+          <Link to={item.path}>{item.linkText}</Link>
+        </p>
       ))}
     </div>
   );
