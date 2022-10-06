@@ -1,11 +1,17 @@
 import React from 'react';
-import Counter from './counter';
 import { Link } from 'react-router-dom';
+import { routerListType } from '../type/type';
 
-const Home = () => {
+type Props = {
+  routerList: routerListType[];
+};
+
+const Home: React.FC<Props> = ({ routerList }) => {
   return (
     <div>
-      <Link to={'/counter'}>counter</Link>
+      {routerList.map((item) => (
+        <Link to={item.path}>{item.linkText}</Link>
+      ))}
     </div>
   );
 };
