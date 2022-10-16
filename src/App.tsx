@@ -5,6 +5,7 @@ import Home from './page/home';
 import Counter from './page/counter';
 import Converter from './page/converter';
 import FlightBooker from './page/flightBooker';
+import Timer from './page/timer';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { routerListType } from './type/type';
 
@@ -23,6 +24,11 @@ const routerList: routerListType[] = [
     path: '/flightBooker',
     element: <FlightBooker />,
     linkText: 'FlightBooker',
+  },
+  {
+    path: '/timer',
+    element: <Timer />,
+    linkText: 'Timer',
   },
 ];
 
