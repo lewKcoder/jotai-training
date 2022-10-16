@@ -1,7 +1,7 @@
-import React from 'react';
-import Timer from '../molecules/timer';
+import { FC } from "react";
+import Timer from "../molecules/timer";
 
-const TimerPage = () => {
+const TimerPage: FC = () => {
   return <Timer />;
 };
 

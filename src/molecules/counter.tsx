@@ -1,8 +1,8 @@
-import React from 'react';
-import { useAtom } from 'jotai';
-import { countAtom } from '../jotai/atom';
+import { FC } from "react";
+import { useAtom } from "jotai";
+import { countAtom } from "../jotai/atom";
 
-const Counter = () => {
+const Counter: FC = () => {
   const [count, setCount] = useAtom<number>(countAtom);
 
   return (

@@ -1,7 +1,7 @@
-import React from 'react';
-import Counter from '../molecules/counter';
+import { FC } from "react";
+import Counter from "../molecules/counter";
 
-const CounterPage = () => {
+const CounterPage: FC = () => {
   return (
     <div>
       <Counter />

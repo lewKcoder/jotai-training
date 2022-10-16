@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { useAtom } from "jotai";
 import { elapsedAtom, durationAtom, resetAtom } from "../jotai/atom";
 
-const Timer = () => {
+const Timer: FC = () => {
   const [{ elapsedTime, proportion }] = useAtom(elapsedAtom);
   const [duration, setDuration] = useAtom(durationAtom);
   const [, reset] = useAtom(resetAtom);

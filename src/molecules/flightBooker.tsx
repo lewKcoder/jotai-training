@@ -1,13 +1,13 @@
-import React from 'react';
-import { useAtom } from 'jotai';
+import { FC } from "react";
+import { useAtom } from "jotai";
 import {
   flightOptionAtom,
   startedDayAtom,
   returnedDayAtom,
   bookingButton,
-} from '../jotai/atom';
+} from "../jotai/atom";
 
-const FlightBooker = () => {
+const FlightBooker: FC = () => {
   const [flightOption, setFlightOption] = useAtom(flightOptionAtom);
   const [startedDay, setStartedDay] = useAtom(startedDayAtom);
   const [returnedDay, setReturnedDay] = useAtom(returnedDayAtom);
@@ -15,31 +15,31 @@ const FlightBooker = () => {
 
   const startedStyles = startedDay.inValidStatus
     ? {
-        backgroundColor: 'red',
+        backgroundColor: "red",
       }
     : {};
   const returnedStyles =
-    returnedDay.inValidStatus && flightOption === 'return flight'
+    returnedDay.inValidStatus && flightOption === "return flight"
       ? {
-          backgroundColor: 'red',
+          backgroundColor: "red",
         }
       : {};
 
   return (
     <section
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '4px',
-        maxWidth: '200px',
-        margin: 'auto',
+        display: "flex",
+        flexDirection: "column",
+        gap: "4px",
+        maxWidth: "200px",
+        margin: "auto",
       }}
     >
       <select
         name="flight"
         id="flight"
         onChange={(e) =>
-          setFlightOption(e.target.value as 'one-way flight' | 'return flight')
+          setFlightOption(e.target.value as "one-way flight" | "return flight")
         }
       >
         <option value="one-way flight">one-way flight</option>
@@ -54,7 +54,7 @@ const FlightBooker = () => {
         type="date"
         style={returnedStyles}
         onChange={(e) => setReturnedDay(e.target.value)}
-        disabled={flightOption !== 'return flight'}
+        disabled={flightOption !== "return flight"}
       />
       <button disabled={buttonStatus} onClick={setButtonStatus}>
         Booking

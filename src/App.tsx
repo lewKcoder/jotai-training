@@ -1,49 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Home from './page/home';
-import Counter from './page/counter';
-import Converter from './page/converter';
-import FlightBooker from './page/flightBooker';
-import Timer from './page/timer';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { routerListType } from './type/type';
+import { FC } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Home from "./page/home";
+import Counter from "./page/counter";
+import Converter from "./page/converter";
+import FlightBooker from "./page/flightBooker";
+import Timer from "./page/timer";
+import CRUD from "./page/crud";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { routerListType } from "./type/type";
 
 const routerList: routerListType[] = [
   {
-    path: '/counter',
+    path: "/counter",
     element: <Counter />,
-    linkText: 'Counter',
+    linkText: "Counter",
   },
   {
-    path: '/converter',
+    path: "/converter",
     element: <Converter />,
-    linkText: 'Converter',
+    linkText: "Converter",
   },
   {
-    path: '/flightBooker',
+    path: "/flightBooker",
     element: <FlightBooker />,
-    linkText: 'FlightBooker',
+    linkText: "FlightBooker",
   },
   {
-    path: '/timer',
+    path: "/timer",
     element: <Timer />,
-    linkText: 'Timer',
+    linkText: "Timer",
+  },
+  {
+    path: "/crud",
+    element: <CRUD />,
+    linkText: "CRUD",
   },
 ];
 
-const App: React.FC = () => {
+const App: FC = () => {
   return (
     <div className="App">
       <BrowserRouter>
         <header className="App-header">
-          <Link to={'/'}>
+          <Link to={"/"}>
             <img src={logo} className="App-logo" alt="logo" />
           </Link>
         </header>
-        <section style={{ padding: '24px 0' }}>
+        <section style={{ padding: "24px 0" }}>
           <Routes>
-            <Route path={'/'} element={<Home routerList={routerList} />} />
+            <Route path={"/"} element={<Home routerList={routerList} />} />
             {routerList.map((item) => (
               <Route
                 key={item.linkText}

@@ -1,7 +1,7 @@
-import React from 'react';
-import FlightBooker from '../molecules/flightBooker';
+import { FC } from "react";
+import FlightBooker from "../molecules/flightBooker";
 
-const flightBookerPage = () => {
+const flightBookerPage: FC = () => {
   return <FlightBooker />;
 };
 

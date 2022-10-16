@@ -1,7 +1,7 @@
-import React from 'react';
-import Converter from '../molecules/converter';
+import { FC } from "react";
+import Converter from "../molecules/converter";
 
-const ConverterPage = () => {
+const ConverterPage: FC = () => {
   return <Converter />;
 };
 
