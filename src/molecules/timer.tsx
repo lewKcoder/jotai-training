@@ -1,48 +1,49 @@
-import { height } from '@mui/system';
-import { useEffect } from 'react';
-import { useAtom } from 'jotai';
-// import { timeBarAtom, timeBarIntervalAtom } from '../jotai/timer-atom';
+import { useAtom } from "jotai";
+import { elapsedAtom, durationAtom, resetAtom } from "../jotai/atom";
 
 const Timer = () => {
-  // const [bar, setBar] = useAtom(timeBarAtom);
-  // const [timeBarValue, setTimeBarValue] = useAtom(timeBarIntervalAtom);
-
-  useEffect(() => {
-    // setTimeBarValue();
-  }, []);
+  const [{ elapsedTime, proportion }] = useAtom(elapsedAtom);
+  const [duration, setDuration] = useAtom(durationAtom);
+  const [, reset] = useAtom(resetAtom);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <span>Elapsed Time</span>
-      <div
-        style={{
-          backgroundColor: '#e4e4e4',
-          width: '200px',
-          height: '20px',
-          border: '1px solid #c3c3c3',
-          marginLeft: '4px',
-          position: 'relative',
-          borderRadius: '2px',
-        }}
-      >
-        <span
+    <>
+      <div>
+        <span>Elapsed Time:</span>
+        <div
           style={{
-            position: 'absolute',
-            backgroundColor: '#cef1ff',
-            left: 0,
-            height: '20px',
-            width: `2px`,
+            width: "100%",
+            height: "20px",
+            border: "1px solid gray",
           }}
-        ></span>
+        >
+          <div
+            style={{
+              width: `${proportion * 100}%`,
+              height: "100%",
+              backgroundColor: "lightblue",
+            }}
+          />
+        </div>
+        <span>{elapsedTime.toFixed(1)}s</span>
       </div>
-      {/* <span style={{ width: '100px' }}>{bar}s</span> */}
-    </div>
+      <div>
+        <span>Duration:</span>
+        <input
+          type="range"
+          value={duration}
+          onChange={(e) => {
+            setDuration(Number(e.target.value));
+          }}
+          min={0}
+          max={30}
+          step={0.1}
+        />
+      </div>
+      <div>
+        <button onClick={reset}>Reset</button>
+      </div>
+    </>
   );
 };
 
